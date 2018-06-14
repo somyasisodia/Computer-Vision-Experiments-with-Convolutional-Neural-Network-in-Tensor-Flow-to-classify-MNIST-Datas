@@ -1,0 +1,44 @@
+Playing with other layers other than top maxpool, the second and third layers. 
+Along with that trying different values of batch size and number of batches, with varied accepted accuracy.
+
+
+The methods in the layers module for creating convolutional and pooling layers for two-dimensional image data expect input tensors to have a shape of [batch_size, image_height, image_width, channels] by default. This behavior can be changed using the data_format parameter; defined as follows:
+
+    batch_size. Size of the subset of examples to use when performing gradient descent during training.
+    image_height. Height of the example images.
+    image_width. Width of the example images.
+    channels. Number of color channels in the example images. For color images, the number of channels is 3 (red, green, blue). For monochrome images, there is just 1 channel (black).
+    image_height. Height of the example images.
+    data_format. A string, one of channels_last (default) or channels_first. channels_last corresponds to inputs with shape (batch, ..., channels) while channels_first corresponds to inputs with shape (batch, channels, ...).
+	
+	So trying on all the layers of second and third maxpool like below:
+	
+	
+	Also trying batch size and number of batches variation so as their product = 100,000 like below:
+	Batch_size = 10
+	No_of_batches = 10000
+	
+	Batch_size = 20
+	No_of_batches = 5000
+	
+	Batch_size = 40
+	No_of_batches = 2500
+	
+	Batch_size = 50
+	No_of_batches = 1000
+	
+	Batch_size = 100
+	No_of_batches = 1000
+
+	
+	Various testing variations are as follows:
+	
+	20, 5000
+	1,1 1,1		0.8947	0.8974	0.8948	0.8921	0.8909	0.8947	0.8861	0.892	0.8953	0.8928
+	1,1 3,3		0.8957	0.8955	0.8961	0.8949	0.8961	0.8956	0.8898	0.8958	0.8939	0.8937	0.8931
+	2,2 2,2		0.8946	0.8591	0.862	0.8679	0.8646	0.8636
+	
+	40, 2500
+	1,1 1,1		0.8889	0.8845	0.8875	0.8839	0.8827	
+	1,1 2,2		0.8911	0.8872	0.89	0.8898	0.8917	0.8891	0.89	0.8888	0.8862
+	1,1 3,3		0.8957	0.8905	0.8829	0.8839	0.8877	0.8908	0.8902
